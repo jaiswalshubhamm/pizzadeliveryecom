@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "854124041681",
+    "project_id": "pizzadeliveryapp-19723",
+    "storage_bucket": "pizzadeliveryapp-19723.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854124041681:android:6a3c8caa9f468d51807cf0",
+        "android_client_info": {
+          "package_name": "com.mywebians.pizzadeliveryadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854124041681-37i9rd24p17pth1ndt40j46tcm4jvopm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZlWP152mKAdJ3fc6Q8s1yW_joK85KEGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854124041681-37i9rd24p17pth1ndt40j46tcm4jvopm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854124041681:android:8b8b159c21c379c3807cf0",
+        "android_client_info": {
+          "package_name": "com.mywebians.pizzadeliveryecom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854124041681-sa352h9es2lfurrqcs4v0h1l0okn4mih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mywebians.pizzadeliveryecom",
+            "certificate_hash": "4be054bfb98ec4ee638bd4da59236f6edf226052"
+          }
+        },
+        {
+          "client_id": "854124041681-37i9rd24p17pth1ndt40j46tcm4jvopm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZlWP152mKAdJ3fc6Q8s1yW_joK85KEGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "854124041681-37i9rd24p17pth1ndt40j46tcm4jvopm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
