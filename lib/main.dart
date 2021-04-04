@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:pizzadeliveryecom/Providers/app.dart';
-import 'package:pizzadeliveryecom/Providers/product.dart';
 import 'package:provider/provider.dart';
-import 'Providers/user.dart';
-import 'Providers/category.dart';
-import 'Providers/restaurant.dart';
-import 'src/app.dart';
+import 'providers/product.dart';
+import 'providers/user.dart';
+import 'providers/category.dart';
+import 'providers/restaurant.dart';
+import 'providers/app.dart';
+import 'app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
