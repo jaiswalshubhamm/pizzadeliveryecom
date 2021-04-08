@@ -17,12 +17,7 @@ import '../screens/productSearch.dart';
 import '../screens/restaurant.dart';
 import '../screens/restaurantSearch.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final app = Provider.of<AppProvider>(context);
@@ -32,9 +27,9 @@ class _HomeState extends State<Home> {
     restaurantProvider.loadSingleRestaurant();
 
     return Scaffold(
-      drawer: Drawer(
-        child: MenuDrawer(),
-      ),
+      // drawer: Drawer(
+      //   child: MenuDrawer(),
+      // ),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Palette.white),
         elevation: 0.5,
@@ -44,7 +39,7 @@ class _HomeState extends State<Home> {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              changeScreen(context, CartScreen());
+              // changeScreen(context, CartScreen());
             },
           ),
           IconButton(
@@ -52,7 +47,7 @@ class _HomeState extends State<Home> {
               Icons.notifications,
             ),
             onPressed: () {
-              changeScreen(context, CartScreen());
+              // changeScreen(context, CartScreen());
             },
           ),
         ],
@@ -95,18 +90,18 @@ class _HomeState extends State<Home> {
                           ),
                           title: TextField(
                             textInputAction: TextInputAction.search,
-                            onSubmitted: (pattern) async {
-                              app.changeLoading();
-                              if (app.search == SearchBy.PRODUCTS) {
-                                await productProvider.search(
-                                    productName: pattern);
-                                changeScreen(context, ProductSearchScreen());
-                              } else {
-                                await restaurantProvider.search(name: pattern);
-                                changeScreen(context, RestaurantSearchScreen());
-                              }
-                              app.changeLoading();
-                            },
+                            // onSubmitted: (pattern) async {
+                            //   app.changeLoading();
+                            //   if (app.search == SearchBy.PRODUCTS) {
+                            //     await productProvider.search(
+                            //         productName: pattern);
+                            //     changeScreen(context, ProductSearchScreen());
+                            //   } else {
+                            //     await restaurantProvider.search(name: pattern);
+                            //     changeScreen(context, RestaurantSearchScreen());
+                            //   }
+                            //   app.changeLoading();
+                            // },
                             decoration: InputDecoration(
                               hintText: 'Find food and restaurant',
                               border: InputBorder.none,
@@ -162,18 +157,18 @@ class _HomeState extends State<Home> {
                       itemCount: categoryProvider.categories.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () async {
-                            await productProvider.loadProductsByCategory(
-                                categoryName:
-                                    categoryProvider.categories[index].name);
-                            changeScreen(
-                              context,
-                              CategoryScreen(
-                                categoryModel:
-                                    categoryProvider.categories[index],
-                              ),
-                            );
-                          },
+                          // onTap: () async {
+                          //   await productProvider.loadProductsByCategory(
+                          //       categoryName:
+                          //           categoryProvider.categories[index].name);
+                          //   changeScreen(
+                          //     context,
+                          //     CategoryScreen(
+                          //       categoryModel:
+                          //           categoryProvider.categories[index],
+                          //     ),
+                          //   );
+                          // },
                           child: CategoryWidget(
                             category: categoryProvider.categories[index],
                           ),
@@ -197,7 +192,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  Featured(),
+                  // Featured(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
@@ -217,18 +212,18 @@ class _HomeState extends State<Home> {
                     children: restaurantProvider.restaurants
                         .map(
                           (item) => GestureDetector(
-                            onTap: () async {
-                              app.changeLoading();
-                              await productProvider.loadProductsByRestaurant(
-                                  restaurantId: item.id);
-                              app.changeLoading();
-                              changeScreen(
-                                context,
-                                RestaurantScreen(
-                                  restaurantModel: item,
-                                ),
-                              );
-                            },
+                            // onTap: () async {
+                            //   app.changeLoading();
+                            //   await productProvider.loadProductsByRestaurant(
+                            //       restaurantId: item.id);
+                            //   app.changeLoading();
+                            //   changeScreen(
+                            //     context,
+                            //     RestaurantScreen(
+                            //       restaurantModel: item,
+                            //     ),
+                            //   );
+                            // },
                             child: RestaurantWidget(
                               restaurant: item,
                             ),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:uuid/uuid.dart';
 import '../helpers/order.dart';
 import '../helpers/user.dart';
@@ -80,6 +81,9 @@ class UserProvider with ChangeNotifier {
       print(e.message);
       _status = Status.Unauthenticated;
       notifyListeners();
+      return false;
+    } on PlatformException catch (e){
+      print(e.message);
       return false;
     }
   }

@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import '../config/palette.dart';
-import '../helpers/screenNavigation.dart';
-import '../providers/user.dart';
-import '../screens/login.dart';
-import '../widgets/loading.dart';
-import '../screens/home.dart';
 import 'package:provider/provider.dart';
+import '../../../config/palette.dart';
+import '../../../helpers/screenNavigation.dart';
+import '../../../providers/user.dart';
+import '../../../widgets/loading.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<UserProvider>(context);
+    final userProvider = Provider.of<UserProvider>(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       key: _key,
-      body: authProvider.status == Status.Authenticating
+      body: userProvider.status == Status.Authenticating
           ? Loading()
           : Container(
               width: double.infinity,
@@ -50,7 +48,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "REGISTER",
+                          "LOGIN",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -64,26 +62,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         SizedBox(height: size.height * 0.02),
                         Container(
                           margin: EdgeInsets.symmetric(vertical: 10),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 5,
-                          ),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                           width: size.width * 0.8,
                           decoration: BoxDecoration(
                             color: Palette.kPrimaryLightColor,
                             borderRadius: BorderRadius.circular(29),
                           ),
                           child: TextFormField(
-                            controller: authProvider.name,
+                            controller: userProvider.email,
                             cursorColor: Palette.primary,
                             decoration: InputDecoration(
                               icon: Icon(
                                 Icons.person,
                                 color: Palette.primary,
                               ),
-                              hintText: 'Username',
+                              hintText: 'Email',
                               border: InputBorder.none,
                             ),
+                            keyboardType: TextInputType.emailAddress,
                           ),
                         ),
                         Container(
@@ -96,31 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             borderRadius: BorderRadius.circular(29),
                           ),
                           child: TextFormField(
-                            controller: authProvider.email,
-                            cursorColor: Palette.primary,
-                            decoration: InputDecoration(
-                              hintText: "Email",
-                              icon: Icon(
-                                Icons.mail,
-                                color: Palette.primary,
-                              ),
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 20,
-                            vertical: 5,
-                          ),
-                          width: size.width * 0.8,
-                          decoration: BoxDecoration(
-                            color: Palette.kPrimaryLightColor,
-                            borderRadius: BorderRadius.circular(29),
-                          ),
-                          child: TextFormField(
-                            controller: authProvider.password,
+                            controller: userProvider.password,
                             obscureText: true,
                             cursorColor: Palette.primary,
                             decoration: InputDecoration(
@@ -144,38 +117,30 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             borderRadius: BorderRadius.circular(29),
                             child: TextButton(
                               onPressed: () async {
-                                if (!await authProvider.signUp()) {
+                                if (!await userProvider.signIn()) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('Registration failed!'),
-                                    ),
-                                  );
+                                      SnackBar(content: Text('Login failed!')));
                                   return;
                                 }
-                                authProvider.clearController();
-                                changeScreenReplacement(
-                                  context,
-                                  Home(),
-                                );
+                                userProvider.clearController();
+                                changeScreenReplacement(context, '/home');
                               },
-                              child: Container(
-                                child: Text(
-                                  'REGISTER',
-                                  style: TextStyle(color: Colors.white),
-                                ),
+                              child: Text(
+                                'LOGIN',
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            changeScreen(context, LoginScreen());
+                            changeScreen(context, '/register');
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                'Login here',
+                                'Register here',
                                 style: TextStyle(fontSize: 20),
                               ),
                             ],

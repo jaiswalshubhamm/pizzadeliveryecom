@@ -10,4 +10,5 @@ class Palette {
   static const Color lightGrey = Color(0xffF1F1F5);
   static const Color darkerGrey = Color(0xff9E9E9E);
   static const Color transparent = Colors.transparent;
+  static const Color darkMode = Color(0xFF0C141D);
 }

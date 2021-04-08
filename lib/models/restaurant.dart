@@ -32,6 +32,8 @@ class RestaurantModel {
   bool liked = false;
 
   RestaurantModel.fromSnapshot(DocumentSnapshot snapshot) {
+    print(snapshot);
+    print('snapshot');
     _id = snapshot.data()[ID];
     _name = snapshot.data()[NAME];
     _image = snapshot.data()[IMAGE];
