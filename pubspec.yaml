@@ -19,6 +19,13 @@ dependencies:
   firebase_core: ^1.0.3
   firebase_auth: ^1.1.0
   cloud_firestore: ^1.0.5
+  # google_sign_in: ^5.0.1
+  # flutter_login_facebook: ^1.0.1
+  shared_preferences: ^2.0.5
+  carousel_pro: ^1.0.0
+  transparent_image: ^2.0.0
+  uuid: ^3.0.3
+  stripe_payment: ^1.0.11
 
 dev_dependencies:
   flutter_test:
