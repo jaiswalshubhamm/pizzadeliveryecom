@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../config/palette.dart';
-import '../helpers/screenNavigation.dart';
+import '../service/screenNavigation.dart';
 import '../providers/app.dart';
 import '../providers/category.dart';
 import '../providers/product.dart';
@@ -10,7 +10,7 @@ import '../widgets/categories.dart';
 import '../widgets/featuredProduct.dart';
 import '../widgets/loading.dart';
 import '../widgets/restaurants.dart';
-import '../widgets/menuDrawer.dart';
+import '../widgets/drawer.dart';
 import '../screens/cart.dart';
 import '../screens/category.dart';
 import '../screens/productSearch.dart';
@@ -27,9 +27,7 @@ class Home extends StatelessWidget {
     restaurantProvider.loadSingleRestaurant();
 
     return Scaffold(
-      // drawer: Drawer(
-      //   child: MenuDrawer(),
-      // ),
+      drawer: Drawer(child: MenuDrawer()),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Palette.white),
         elevation: 0.5,

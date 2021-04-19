@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../config/palette.dart';
 import '../providers/app.dart';
-import '../providers/user.dart';
+import '../providers/auth.dart';
 
 class CartProducts extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class _CartProductsState extends State<CartProducts> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context);
+    final user = Provider.of<AuthProvider>(context);
     final app = Provider.of<AppProvider>(context);
 
     return user.userModel.cart.length < 1

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../config/palette.dart';
 import '../models/orders.dart';
-import '../providers/user.dart';
+import '../providers/auth.dart';
 
 class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context);
+    final user = Provider.of<AuthProvider>(context);
     // final app = Provider.of<UserProvider>(context);
 
     return Scaffold(

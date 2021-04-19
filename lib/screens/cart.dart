@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import '../config/palette.dart';
-import '../helpers/order.dart';
+import '../service/order.dart';
 import '../models/cartItem.dart';
 import '../providers/app.dart';
-import '../providers/user.dart';
+import '../providers/auth.dart';
 import '../widgets/cartProducts.dart';
 import '../widgets/loading.dart';
 
@@ -20,7 +20,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context);
+    final user = Provider.of<AuthProvider>(context);
     final app = Provider.of<AppProvider>(context);
 
     return Scaffold(

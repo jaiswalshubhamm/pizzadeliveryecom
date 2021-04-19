@@ -8,7 +8,7 @@ import 'providers/app.dart';
 import 'providers/category.dart';
 import 'providers/product.dart';
 import 'providers/restaurant.dart';
-import 'providers/user.dart';
+import 'providers/auth.dart';
 import 'screens/home.dart';
 import 'router.dart' as router;
 
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
           return MultiProvider(
             providers: [
               ChangeNotifierProvider.value(value: AppProvider()),
-              ChangeNotifierProvider.value(value: UserProvider.initialize()),
+              ChangeNotifierProvider.value(value: AuthProvider.initialize()),
               ChangeNotifierProvider.value(
                   value: CategoryProvider.initialize()),
               ChangeNotifierProvider.value(

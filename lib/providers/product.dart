@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
-import '../helpers/product.dart';
+import '../service/product.dart';
 
 class ProductProvider with ChangeNotifier {
   ProductServices _productServices = ProductServices();

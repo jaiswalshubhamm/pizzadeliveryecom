@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../helpers/category.dart';
+import '../service/category.dart';
 import '../models/category.dart';
 
 class CategoryProvider with ChangeNotifier {
