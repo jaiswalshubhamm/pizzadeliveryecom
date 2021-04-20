@@ -5,15 +5,10 @@ import 'package:provider/provider.dart';
 import '../../../config/palette.dart';
 import '../../../service/screenNavigation.dart';
 import '../../../providers/auth.dart';
-import '../../home.dart';
+import '../../home/home.dart';
 import '../background.dart';
 
-class RegisterScreen extends StatefulWidget {
-  @override
-  _RegisterScreenState createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
+class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

@@ -5,10 +5,8 @@ import 'package:pizzadeliveryecom/config/palette.dart';
 class EmailFieldWidget extends StatefulWidget {
   final TextEditingController controller;
 
-  const EmailFieldWidget({
-    Key key,
-    @required this.controller,
-  }) : super(key: key);
+  const EmailFieldWidget({Key key, @required this.controller})
+      : super(key: key);
 
   @override
   _EmailFieldWidgetState createState() => _EmailFieldWidgetState();

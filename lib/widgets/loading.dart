@@ -5,16 +5,10 @@ import '../config/palette.dart';
 class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Palette.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          SpinKitFadingCircle(
-            color: Palette.primary,
-            size: 30,
-          ),
-        ],
+    return Center(
+      child: SpinKitFadingCircle(
+        color: Palette.primary,
+        size: 30,
       ),
     );
   }

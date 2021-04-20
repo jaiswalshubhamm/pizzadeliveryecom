@@ -104,10 +104,7 @@ class _FormWidgetSignupState extends State<FormWidgetSignup> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(
-            'Login Failed',
-            style: TextStyle(color: Colors.black),
-          ),
+          title: CustomText(text: 'Signup Failed', color: Palette.primary),
           content: Text(errorMsg),
         );
       },

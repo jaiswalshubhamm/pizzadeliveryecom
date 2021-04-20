@@ -9,7 +9,7 @@ import 'providers/category.dart';
 import 'providers/product.dart';
 import 'providers/restaurant.dart';
 import 'providers/auth.dart';
-import 'screens/home.dart';
+import 'screens/home/home.dart';
 import 'router.dart' as router;
 
 class App extends StatelessWidget {

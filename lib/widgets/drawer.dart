@@ -7,13 +7,13 @@ import '../service/screenNavigation.dart';
 class MenuDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AuthProvider>(context);
+    final authData = Provider.of<AuthProvider>(context);
     return ListView(
       children: <Widget>[
         UserAccountsDrawerHeader(
           decoration: BoxDecoration(color: Palette.primary),
           accountName: Text(
-            // user.userModel.name ??
+            // authData.userModel.name ??
             'username loading...',
             style: TextStyle(
               color: Palette.white,
@@ -75,14 +75,24 @@ class MenuDrawer extends StatelessWidget {
           leading: Icon(Icons.settings),
           title: Text('Settings'),
         ),
-        ListTile(
-          onTap: () {
-            // user.signOut();
-            changeScreen(context, '/login');
-          },
-          leading: Icon(Icons.exit_to_app),
-          title: Text('Logout'),
-        ),
+        if (!authData.isLoggedIn)
+          ListTile(
+            onTap: () {
+              authData.signOut();
+              changeScreen(context, '/login');
+            },
+            leading: Icon(Icons.exit_to_app),
+            title: Text('Logout'),
+          ),
+        if (authData.isLoggedIn)
+          ListTile(
+            onTap: () {
+              authData.signOut();
+              changeScreen(context, '/login');
+            },
+            leading: Icon(Icons.login),
+            title: Text('Login'),
+          )
       ],
     );
   }

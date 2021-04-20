@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import '../config/palette.dart';
-import '../models/category.dart';
-import '../widgets/loading.dart';
+import '../../../config/palette.dart';
+import '../../../models/category.dart';
+import '../../../widgets/loading.dart';
 
 class CategoryWidget extends StatelessWidget {
   final CategoryModel category;

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'screens/auth/logIn/logIn.dart';
 import 'screens/auth/register/register.dart';
-import 'screens/home.dart';
+import 'screens/home/home.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  final args = settings.arguments;
   switch (settings.name) {
     case '/home':
       return MaterialPageRoute(builder: (_) => Home());

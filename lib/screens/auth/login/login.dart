@@ -4,7 +4,7 @@ import '../../../config/palette.dart';
 import '../../../service/screenNavigation.dart';
 import '../../../providers/auth.dart';
 import '../../../widgets/customText.dart';
-import '../../home.dart';
+import '../../home/home.dart';
 import '../background.dart';
 import 'widget/form.dart';
 

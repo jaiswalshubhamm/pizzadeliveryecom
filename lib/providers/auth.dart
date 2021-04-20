@@ -20,9 +20,9 @@ class AuthProvider with ChangeNotifier {
   AuthResultStatus status;
 
   // getters
+  User get user => _user;
   UserModel get userModel => _userModel;
   bool get isLoggedIn => _isLoggedIn;
-  User get user => _user;
 
   // public variables
   List<OrderModel> orders = [];
@@ -31,18 +31,19 @@ class AuthProvider with ChangeNotifier {
     _auth.authStateChanges().listen(_onStateChanges);
   }
 
-  Future<bool> signIn() async {
+  Future<bool> signIn(email, password) async {
     try {
-      notifyListeners();
       await _auth.signInWithEmailAndPassword(
-          // email: email.text.trim(),
-          // password: password.text.trim(),
-          );
+        email: email.trim(),
+        password: password.trim(),
+      );
+      status = AuthResultStatus.successful;
+      _isLoggedIn = true;
       return true;
-    } on FirebaseAuthException catch (e) {
-      print('Failed with error code: ${e.code}');
-      print(e.message);
-      notifyListeners();
+    } catch (e) {
+      print('Exception @createAccount: $e');
+      status = AuthExceptionHandler.handleException(e);
+      print(status);
       return false;
     }
   }
@@ -67,19 +68,18 @@ class AuthProvider with ChangeNotifier {
           );
         },
       );
+      _isLoggedIn = true;
+      status = AuthResultStatus.successful;
       return true;
     } catch (e) {
       print('Exception @createAccount: $e');
       status = AuthExceptionHandler.handleException(e);
-      print(status);
       return false;
     }
   }
 
   Future signOut() async {
     _auth.signOut();
-    notifyListeners();
-    return Future.delayed(Duration.zero);
   }
 
   Future<void> reloadUserModel() async {
@@ -152,22 +152,22 @@ class AuthExceptionHandler {
       case "email-already-in-use":
         status = AuthResultStatus.invalidEmail;
         break;
-      case "ERROR_WRONG_PASSWORD":
+      case "wrong-password":
         status = AuthResultStatus.wrongPassword;
         break;
       case "weak-password":
         status = AuthResultStatus.weakPassword;
         break;
-      case "ERROR_USER_NOT_FOUND":
+      case "user-not-found":
         status = AuthResultStatus.userNotFound;
         break;
-      case "ERROR_USER_DISABLED":
+      case "user-disabled":
         status = AuthResultStatus.userDisabled;
         break;
-      case "ERROR_TOO_MANY_REQUESTS":
+      case "too-many-requests":
         status = AuthResultStatus.tooManyRequests;
         break;
-      case "ERROR_OPERATION_NOT_ALLOWED":
+      case "operation-not-allowed":
         status = AuthResultStatus.operationNotAllowed;
         break;
       case "ERROR_EMAIL_ALREADY_IN_USE":

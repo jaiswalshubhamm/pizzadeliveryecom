@@ -5,10 +5,8 @@ import '../../../../config/palette.dart';
 class PasswordFieldWidget extends StatefulWidget {
   final TextEditingController controller;
 
-  const PasswordFieldWidget({
-    Key key,
-    @required this.controller,
-  }) : super(key: key);
+  const PasswordFieldWidget({Key key, @required this.controller})
+      : super(key: key);
 
   @override
   _PasswordFieldWidgetState createState() => _PasswordFieldWidgetState();
@@ -50,8 +48,8 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget> {
           keyboardType: TextInputType.visiblePassword,
           autofillHints: [AutofillHints.password],
           onEditingComplete: () => TextInput.finishAutofillContext(),
-          validator: (password) => password != null && password.length < 5
-              ? 'Enter min. 5 characters'
+          validator: (password) => password != null && password.length < 1
+              ? 'Enter yourzmin. 5 characters'
               : null,
         ),
       );
